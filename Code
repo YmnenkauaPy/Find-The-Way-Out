@@ -497,8 +497,6 @@ round_tbl = Decor(80, 160, 130, 85, round_tbl_img)
 tbl = Decor(480, 590, 260, 100, tbl_img)
 #фоновые объекты
 carpet = Decor(500, 500, 200, 100, carpet_img)#ковер
-#list1_room1_decor = [bed, bookshelf1, bookshelf2, round_tbl, tbl]#для столкновения(физические объекты)
-#list2_room1_decor = [bed, bookshelf1, bookshelf2, round_tbl, tbl,carpet]#для прорисовки(фоновые + физические объекты)
 note1=Note(500,500,50,25,text_question1)
 
 #room-2
@@ -519,8 +517,6 @@ bookshelf5 = Decor(20, 10, 130, 140, book_img3)
 bookshelf6 = Decor(145, 20, 130, 140, book_img4)
 bed2 = Decor(20, 475, 165, 200, bed2_img)
 tbl2 = Decor(480, 300, 255, 100, tbl_img)
-list1_room2_decor = [round_tbl2, bookshelf3, bookshelf4, bookshelf5, bookshelf6]#для столкновения(физические объекты)
-list2_room2_decor = [round_tbl2, bookshelf3, bookshelf4, bookshelf5, bookshelf6]#для прорисовки(фоновые + физические объекты)
 
 #room-3
 #border
@@ -538,8 +534,6 @@ door2_room3=Door(550, 0, 100, 20, 600, 610,'location-5')
 bookshelf7 = Decor(20, 10, 150, 190, book_img3)
 round_tbl3 = Decor(200, 70, 120, 120, round_tbl_img)
 tbl3 = Decor(560, 220, 125, 230, tbl_img)
-#list1_room3_decor = [bookshelf7, round_tbl3]#для столкновения(физические объекты)
-#list2_room3_decor = [bookshelf7, round_tbl3]#для прорисовки(фоновые + физические объекты)
 
 #room-4
 #border
@@ -557,8 +551,6 @@ door2_room4=Door(0, 125, 20, 100, 1100, 200,'location-1')
 tbl4 = Decor(435, 15, 330, 105, tbl_img)
 round_tbl4 = Decor(1000, 275, 140, 125, round_tbl_img)
 bed3 = Decor(20, 520, 115, 165, bed3_img)
-#list1_room4_decor = [tbl4, round_tbl4,bed3]#для столкновения(физические объекты)
-#list2_room4_decor = [tbl4, round_tbl4,bed3]#для прорисовки(фоновые + физические объекты)
 
 #room-5
 #border
@@ -575,8 +567,6 @@ door1_room5=Door(550, 680, 100, 20, 600, 70,'location-3')
 bed4 = Decor(20, 500, 175, 180, bed4_img)
 bookshelf8, bookshelf9 = Decor(440, 20, 140, 140, book_img5), Decor(580, 20, 180, 140, book_img6) 
 tbl5 = Decor(480, 145, 190, 70, tbl_img)
-#list1_room5_decor = [bed4, bookshelf8,bookshelf9,tbl5]#для столкновения(физические объекты)
-#list2_room5_decor = [bed4, bookshelf8,bookshelf9,tbl5]#для прорисовки(фоновые + физические объекты)
 
 #room-6
 #border
@@ -591,8 +581,6 @@ door1_room6=Door(550, 680, 100, 20, 600, 70,'location-1')
 #Декор
 bookshelf10, bookshelf11 = Decor(455, 130, 110, 180, book_img5), Decor(560, 130, 150, 180, book_img6)
 tbl6 = Decor(460, 310, 245, 80, tbl_img)
-#list1_room6_decor = [bookshelf10, bookshelf11,tbl6]#для столкновения(физические объекты)
-#list2_room6_decor = [bookshelf10, bookshelf11,tbl6]#для прорисовки(фоновые + физические объекты)
 
 #список декора по комнатам: 1 - первая комната и т.д.
 decor_list1 = [bed, bookshelf1, bookshelf2, round_tbl, tbl]
@@ -657,7 +645,7 @@ while True:
             question_start=False
         if it_update(player_hero,item2,None,carpet_checker)== True and carpet_checker==True:            
             if quest_with_yesno('Да','Нет',question1)== 'Да':
-                ok('Ты получил что-то наподобие ключика')    
+                ok('Ты получил золотой ключ!')    
                 gold_key=True
                 item2.rect.x+=1000
             elif quest_with_yesno('Да','Нет',question1)== 'Да':
@@ -671,7 +659,6 @@ while True:
 
         door1_room2.update()
 
-        
         object_draw(decor_list2)
         object_draw(list_wall_room2)
         player_hero.update()
@@ -686,7 +673,6 @@ while True:
         object_collide(list_wall_room3,decor_list3)
 
         door1_room3.update(), door2_room3.update()
-
         
         object_draw(decor_list3)
         object_draw(list_wall_room3)
@@ -705,7 +691,6 @@ while True:
 
         door1_room4.update(), door2_room4.update()
 
-        
         object_draw(decor_list4)
         object_draw(list_wall_room4)
         player_hero.update()
@@ -720,7 +705,6 @@ while True:
         window.blit(backgraund,(0, 0))
 
         object_collide(list_wall_room5,decor_list5)
-
         door1_room5.update()
 
         object_draw(decor_list5)
