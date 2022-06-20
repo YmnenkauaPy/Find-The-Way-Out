@@ -72,17 +72,14 @@ book_img5, book_img6 = "IMG/bookshelf5.png", "IMG/bookshelf6.png"
 
 
 #----SOUND----
-"""mixer.init()
+mixer.init()
 
 mixer.music.load('SOUNDS/sTest-sound.mp3')
 mixer.music.set_volume(0.5)
-mixer.music.play()"""
+mixer.music.play()
 
 #----FONT----
 font = pygame.font.Font(None, 50)
-
-
-
 
 #----CLASS----
 class Player(sprite.Sprite):#class Player and dark_background/illusion of light
@@ -192,6 +189,7 @@ class Door():
         self.rect.y = door_y
     def update(self):
         window.blit(self.image, (self.rect.x,self.rect.y))
+
     def teleportation(self):
         global location
         player_hero.rect.x=self.tp_x
@@ -204,7 +202,7 @@ class Decor(sprite.Sprite):
         self.width = width
         self.height = height
 
-        self.image = transform.scale(image.load(decor_image), (width,height))
+        self.image = transform.scale(image.load(decor_image), (width, height))
 
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -237,7 +235,6 @@ class Note(sprite.Sprite):
         if keys[K_e]==True and sprite.collide_rect(note1, player_hero)==True:
             note_play=True
 
-
 class items(Wall):
     def __init__(self,width,height,x,y,col1,col2,col3,item_number):
         self.width=width
@@ -254,15 +251,11 @@ class items(Wall):
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
 
-        
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
 
-
     def update(self):
         global b,b1,question_start
-
-
         if keys[K_e]== True and b1 ==True:
             self.rect.x+=10000
             question_start =True
@@ -427,7 +420,6 @@ def it_update(player,item,question,need_item):
 def name(c):
     global a
     name = ""
-    
     while name !=c or a!=True:
         for evt in pygame.event.get():
             if evt.type == KEYDOWN:
@@ -482,8 +474,6 @@ def wall_collide(walls_list, decor_list):
 player_hero=Player(600, 385)
 backgraund = transform.scale(image.load(img_backgraund), (win_width, win_height))
 
-
-
 #----ROOMS----
 #room-1
 #border
@@ -500,7 +490,7 @@ door1_room1=Door(550, 0, 100, 20, 600, 610,'location-6')
 door2_room1=Door(0, 300, 20, 100, 1060, 305,'location-3')
 door3_room1=Door(1180, 185, 20, 100, 50, 140,'location-4')
 #decor
-bed = Decor(1045, 450, 150, 200, bed_img)
+bed = Decor(1035, 490, 150, 200, bed_img)
 bookshelf1 = Decor(20, 10, 130, 150, book_img1)
 bookshelf2 = Decor(150, 20, 130, 150, book_img2)
 round_tbl = Decor(80, 160, 130, 85, round_tbl_img)
@@ -510,7 +500,6 @@ carpet = Decor(500, 500, 200, 100, carpet_img)#ковер
 #list1_room1_decor = [bed, bookshelf1, bookshelf2, round_tbl, tbl]#для столкновения(физические объекты)
 #list2_room1_decor = [bed, bookshelf1, bookshelf2, round_tbl, tbl,carpet]#для прорисовки(фоновые + физические объекты)
 note1=Note(500,500,50,25,text_question1)
-
 
 #room-2
 #border
@@ -533,7 +522,6 @@ tbl2 = Decor(480, 300, 255, 100, tbl_img)
 list1_room2_decor = [round_tbl2, bookshelf3, bookshelf4, bookshelf5, bookshelf6]#для столкновения(физические объекты)
 list2_room2_decor = [round_tbl2, bookshelf3, bookshelf4, bookshelf5, bookshelf6]#для прорисовки(фоновые + физические объекты)
 
-
 #room-3
 #border
 room3_wall1 = Wall(0, 0, 550, 20)
@@ -552,7 +540,6 @@ round_tbl3 = Decor(200, 70, 120, 120, round_tbl_img)
 tbl3 = Decor(560, 220, 125, 230, tbl_img)
 #list1_room3_decor = [bookshelf7, round_tbl3]#для столкновения(физические объекты)
 #list2_room3_decor = [bookshelf7, round_tbl3]#для прорисовки(фоновые + физические объекты)
-
 
 #room-4
 #border
@@ -573,7 +560,6 @@ bed3 = Decor(20, 520, 115, 165, bed3_img)
 #list1_room4_decor = [tbl4, round_tbl4,bed3]#для столкновения(физические объекты)
 #list2_room4_decor = [tbl4, round_tbl4,bed3]#для прорисовки(фоновые + физические объекты)
 
-
 #room-5
 #border
 room5_wall1 = Wall(0, 0, 700, 20)
@@ -592,7 +578,6 @@ tbl5 = Decor(480, 145, 190, 70, tbl_img)
 #list1_room5_decor = [bed4, bookshelf8,bookshelf9,tbl5]#для столкновения(физические объекты)
 #list2_room5_decor = [bed4, bookshelf8,bookshelf9,tbl5]#для прорисовки(фоновые + физические объекты)
 
-
 #room-6
 #border
 room6_wall1 = Wall(0, 0, 1200, 20)
@@ -609,7 +594,6 @@ tbl6 = Decor(460, 310, 245, 80, tbl_img)
 #list1_room6_decor = [bookshelf10, bookshelf11,tbl6]#для столкновения(физические объекты)
 #list2_room6_decor = [bookshelf10, bookshelf11,tbl6]#для прорисовки(фоновые + физические объекты)
 
-
 #список декора по комнатам: 1 - первая комната и т.д.
 decor_list1 = [bed, bookshelf1, bookshelf2, round_tbl, tbl]
 decor_list2 = [round_tbl2, bookshelf3, bookshelf4, bookshelf5, bookshelf6, bed2, tbl2]
@@ -619,11 +603,9 @@ decor_list5 = [bed4, bookshelf8, bookshelf9, tbl5]
 decor_list6 = [tbl6, bookshelf10, bookshelf11]
 decor_list = [decor_list1, decor_list2, decor_list3, decor_list4, decor_list5, decor_list6]
 
-
 #----VARIABLE----
 location='location-1' 
 note_play=False
-
 
 carpet_checker,a,b1,question_start,gold_key=False,False,False,False,False
 while True:
@@ -631,13 +613,11 @@ while True:
     values_up = values_down = values_right = values_left = True
     #b=False
 
-
     for e in event.get():
         if e.type==QUIT:
             exit()
         elif e.type == MOUSEBUTTONDOWN:
             print(mouse.get_pos())
-    
     
     if location == 'menu':
         window.fill('#D2D2D2')
